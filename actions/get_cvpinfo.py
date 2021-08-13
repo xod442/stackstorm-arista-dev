@@ -23,7 +23,7 @@ from lib.actions import AristaBaseAction
 
 class alarmLookup(AristaBaseAction):
     def run(self):
-        cvpinfo = client.api.get_cvp_info()
+        cvpinfo = self.client.api.get_cvp_info()
 
         return (True, cvpinfo)
       
