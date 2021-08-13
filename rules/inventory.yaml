@@ -1,0 +1,13 @@
+---
+name: "inventory"
+description: "Get Arista inventory from CVP and load mongo databases."
+enabled: false
+
+trigger:
+  type: "core.st2.IntervalTimer"
+  parameters:
+    delta: 5
+    unit: minutes
+
+action:
+  ref: "aristacvp.get_inventory"

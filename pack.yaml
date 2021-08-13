@@ -1,0 +1,13 @@
+---
+ref: aristacvp
+name: aristacvp
+description: Aruba Cloud Vision Portal Integration Pack
+keywords:
+  - Spine
+  - Leaf
+  - Sysdb
+version: 0.1.0
+python_versions:
+  - "3"
+author: Rick Kauffman
+email: rick.a.kauffman@hpe.com

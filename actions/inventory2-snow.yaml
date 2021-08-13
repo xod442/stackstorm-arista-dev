@@ -1,0 +1,6 @@
+---
+name: inventory2-snow
+description: A workflow for switch inventory records from mongo to servicenow.
+runner_type: orquesta
+entry_point: workflows/inventory2-snow.yaml
+enabled: true

@@ -1,0 +1,7 @@
+---
+name: get_events
+pack: aristacvp
+description: Get an array of alarms from the CVP controller
+runner_type: python-script
+entry_point: get_events.py
+enabled: true

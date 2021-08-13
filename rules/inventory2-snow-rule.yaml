@@ -1,0 +1,13 @@
+---
+name: "inventory2-snow-rule"
+description: "Get Arista switch inventory from mongo and send to service now."
+enabled: false
+
+trigger:
+  type: "core.st2.IntervalTimer"
+  parameters:
+    delta: 5
+    unit: minutes
+
+action:
+  ref: "aristacvp.inventory2-snow"

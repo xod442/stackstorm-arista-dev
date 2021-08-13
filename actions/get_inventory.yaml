@@ -1,0 +1,7 @@
+---
+name: get_inventory
+pack: aristacvp
+description: Get a list of switch inventory from the CVP controller
+runner_type: python-script
+entry_point: get_inventory.py
+enabled: true
