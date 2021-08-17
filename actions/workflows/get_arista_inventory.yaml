@@ -12,4 +12,4 @@ tasks:
         do: sendmongo
 
   sendmongo:
-    action: aristacvp.load_cvp_inventory inventory=<% ctx().alarms %>
+    action: aristacvp.load_cvp_inventory inventory=<% ctx().inventory %>

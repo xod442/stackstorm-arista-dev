@@ -22,11 +22,11 @@
 
 import pymongo
 from lib.actions import MongoBaseAction
-import time
+import uuid
 
 
 class loadDb(MongoBaseAction):
-    def run(self, alarms):
+    def run(self, inventory):
 
         mydb = self.dbclient["app_db"]
         known = mydb["aristacvp"]
@@ -34,22 +34,23 @@ class loadDb(MongoBaseAction):
         new_inventory={}
 
         for inv in inventory:
-            myquery = { "u_systemMacAddress:" : inv['u_systemMacAddress:'] }
+            myquery = { "u_systemMacAddress" : inv['u_systemMacAddress'] }
             records = known.find(myquery).count()
             if records == 0:
                 new_inventory['u_vendor']='arista'
                 new_inventory['u_deviceStatus']=inv['u_deviceStatus']
                 new_inventory['u_hostname']=inv['u_hostname']
-                new_inventory['u_ipAddress:']=inv['u_ipAddress:']
+                new_inventory['u_ipAddress']=inv['u_ipAddress']
                 new_inventory['u_modelName']=inv['u_modelName']
-                new_inventory['u_serialNumber:']=inv['u_serialNumber:']
-                new_inventory['u_systemMacAddress:']=inv['u_systemMacAddress:']
-                new_inventory['u_type:']=inv['u_type:']
-                new_inventory['u_version:']=inv['u_version:']
-                new_inventory['u_ztpMode:']=inv['u_ztpMode:']
+                new_inventory['u_serialNumber']=inv['u_serialNumber']
+                new_inventory['u_systemMacAddress']=inv['u_systemMacAddress']
+                new_inventory['u_type']=inv['u_type']
+                new_inventory['u_version']=inv['u_version']
+                new_inventory['u_ztpMode']=inv['u_ztpMode']
                 new_inventory['u_process']='no'
                 
-                timestamp = time.time
-                new_inventory['_id']=timestamp         
+                id = uuid.uuid4()
+                new_inventory['_id']=id   
+               
                 write_record = known.insert_one(new_inventory)
         return (records)
