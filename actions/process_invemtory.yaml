@@ -1,0 +1,11 @@
+---
+name: process_inventory
+pack: aristacvp
+description: Set the process flag in the mongo database for cvp inventory to yes
+runner_type: python-script
+entry_point: process_inventory.py
+enabled: true
+parameters:
+  inventory:
+    required: true
+    type: array

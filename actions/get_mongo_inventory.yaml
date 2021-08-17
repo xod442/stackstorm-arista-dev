@@ -1,0 +1,7 @@
+---
+name: get_mongo_inventory
+pack: aristacvp
+description: Get an non-processed inventory entries from mongo database
+runner_type: python-script
+entry_point: get_mongo_inventory.py
+enabled: true
