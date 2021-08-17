@@ -1,0 +1,6 @@
+---
+name: get_arista_inventory
+description: A workflow for getting CVP alarms into mongo.
+runner_type: orquesta
+entry_point: workflows/get_arista_inventory.yaml
+enabled: true

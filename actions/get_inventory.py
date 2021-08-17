@@ -21,7 +21,7 @@
 
 from lib.actions import AristaBaseAction
 
-class inventory(AristaBaseAction):
+class get_inventory(AristaBaseAction):
     def run(self):
         inventory = self.client.api.get_inventory()
         if isinstance(inventory, list):

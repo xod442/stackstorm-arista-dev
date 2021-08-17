@@ -1,0 +1,15 @@
+version: 1.0
+
+description: A workflow to copy CVP inventory into a mongo database.
+
+tasks:
+  getinventory:
+    action: aristacvp.get_inventory
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - inventory: <% result().result %>
+        do: sendmongo
+
+  sendmongo:
+    action: aristacvp.load_cvp_inventory inventory=<% ctx().alarms %>

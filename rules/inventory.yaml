@@ -10,4 +10,4 @@ trigger:
     unit: minutes
 
 action:
-  ref: "aristacvp.get_inventory"
+  ref: "aristacvp.get_arista_inventory"

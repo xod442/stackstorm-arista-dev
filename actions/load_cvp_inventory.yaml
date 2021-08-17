@@ -1,0 +1,11 @@
+---
+name: load_cvp_inventory
+pack: aristacvp
+description: loads the alarms from the CVP into the mongo DB
+runner_type: python-script
+entry_point: load_cvp_inventory.py
+enabled: true
+parameters:
+  inventory:
+    required: true
+    type: array
