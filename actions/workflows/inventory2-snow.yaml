@@ -4,7 +4,7 @@ description: A workflow to copy CVP inventory from mongo and into snow.
 
 tasks:
   getalerts:
-    action: arista.get_mongo_inventory
+    action: aristacvp.get_mongo_inventory
     next:
       - when: <% succeeded() %>
         publish:

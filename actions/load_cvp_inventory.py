@@ -22,7 +22,7 @@
 
 import pymongo
 from lib.actions import MongoBaseAction
-import uuid
+import random import random
 
 
 class loadDb(MongoBaseAction):
@@ -34,22 +34,22 @@ class loadDb(MongoBaseAction):
         new_inventory={}
 
         for inv in inventory:
-            myquery = { "u_systemMacAddress" : inv['u_systemMacAddress'] }
+            myquery = { "u_systemmacaddress" : inv['u_systemMacAddress'] }
             records = known.find(myquery).count()
             if records == 0:
                 new_inventory['u_vendor']='arista'
-                new_inventory['u_deviceStatus']=inv['u_deviceStatus']
+                new_inventory['u_devicestatus']=inv['u_deviceStatus']
                 new_inventory['u_hostname']=inv['u_hostname']
-                new_inventory['u_ipAddress']=inv['u_ipAddress']
-                new_inventory['u_modelName']=inv['u_modelName']
-                new_inventory['u_serialNumber']=inv['u_serialNumber']
-                new_inventory['u_systemMacAddress']=inv['u_systemMacAddress']
+                new_inventory['u_ipaddress']=inv['u_ipAddress']
+                new_inventory['u_modelname']=inv['u_modelName']
+                new_inventory['u_serialnumber']=inv['u_serialNumber']
+                new_inventory['u_systemmacaddress']=inv['u_systemMacAddress']
                 new_inventory['u_type']=inv['u_type']
                 new_inventory['u_version']=inv['u_version']
-                new_inventory['u_ztpMode']=inv['u_ztpMode']
+                new_inventory['u_ztpmode']=inv['u_ztpMode']
                 new_inventory['u_process']='no'
                 
-                id = uuid.uuid4()
+                id = random()
                 new_inventory['_id']=id   
                
                 write_record = known.insert_one(new_inventory)
