@@ -4,7 +4,7 @@ description: A workflow to copy CVP inventory from mongo and into snow.
 
 tasks:
   getalerts:
-    action: aristacvp.get_mongo_inventory
+    action: arista.get_mongo_inventory
     next:
       - when: <% succeeded() %>
         publish:
@@ -16,7 +16,7 @@ tasks:
     action: servicenow.create_record table="u_arista_inventory" payload='<% item() %>'
     next:
       - when: <% succeeded() %>
-        do: processmongo
+        do: processinventory
 
-  processmongo:
+  processinventory:
     action: aristacvp.process_inventory inventory=<% ctx().inventory %>
