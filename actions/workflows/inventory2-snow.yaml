@@ -19,4 +19,4 @@ tasks:
         do: processmongo
 
   processmongo:
-    action: arista.process_inventory inventory=<% ctx().inventory %>
+    action: aristacvp.process_inventory inventory=<% ctx().inventory %>
