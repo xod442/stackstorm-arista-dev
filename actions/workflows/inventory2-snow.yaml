@@ -13,10 +13,10 @@ tasks:
 
   snowinventory:
     with: <% ctx().inventory %>
-    action: servicenow.create_record table="u_arista_cvp_inventory" payload='<% item() %>'
+    action: servicenow.create_record table="u_arista_inventory" payload='<% item() %>'
     next:
       - when: <% succeeded() %>
-        do: processalarms
+        do: processmongo
 
-  processalarms:
+  processmongo:
     action: arista.process_inventory inventory=<% ctx().inventory %>
